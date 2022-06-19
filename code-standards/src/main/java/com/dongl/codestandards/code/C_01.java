@@ -63,6 +63,11 @@ public class C_01 {
         List<User> addUserList = userList.stream().filter(user -> user.getAge() > 18)
                 .sorted(Comparator.comparing(User::getAge))
                 .collect(Collectors.toList());
+        int sum = 123 + 456 + 789 + 452 + 478 + 852 + 694 + 452 + 215 + 123 + 456 + 789 + 452 + 478 + 852 + 694
+                + 452 + 215 + 123 + 456 + 789 + 452 + 478 + 852 + 694 + 452 + 215;
+
+        String message = getMessage("requestMessageParam1", "requestMessageParam2", "requestMessageParam3",
+                "requestMessageParam4");
     }
 
 
@@ -70,7 +75,32 @@ public class C_01 {
      * 反例
      */
     public void updateUserList(List<User> userList) {
+        //行宽超过120字符需要进行换行
         List<User> addUserList = userList.stream().filter(user -> user.getAge() > 18).sorted(Comparator.comparing(User::getAge)).collect(Collectors.toList());
+
+        //括号前不要换行
+        List<User> addUserList1 = userList.stream().filter(user -> user.getAge() > 18).sorted
+                (Comparator.comparing(User::getAge)).collect(Collectors.toList());
+
+        //换行带符号
+        int sum = 123 + 456 + 789 + 452 + 478 + 852 + 694 + 452 + 215 + 123 + 456 + 789 + 452 + 478 + 852 + 694 +
+                452 + 215 + 123 + 456 + 789 + 452 + 478 + 852 + 694 + 452 + 215;
+
+        //逗号后换行
+        String message = getMessage("requestMessageParam1", "requestMessageParam2", "requestMessageParam3"
+                , "requestMessageParam4");
+    }
+
+    /**
+     *  获取信息
+     * @param param1 参数1
+     * @param param2 参数2
+     * @param param3 参数3
+     * @param param4 参数4
+     */
+    private String getMessage(String param1, String param2, String param3, String param4) {
+        System.out.println("获取信息");
+        return "SUCCESS";
     }
 
 }
